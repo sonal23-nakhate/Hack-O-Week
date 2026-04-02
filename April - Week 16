@@ -1,0 +1,59 @@
+# Create a 'smoothed' version of the data using a window of 50 readings
+df_cleaned['val_smoothed'] = df_cleaned['val'].rolling(window=50).mean()
+
+# Plot them together to see the difference
+plt.figure(figsize=(12, 5))
+plt.plot(df_cleaned['val'], alpha=0.3, label='Original (Noisy)')
+plt.plot(df_cleaned['val_smoothed'], color='red', label='Smoothed (Clean)')
+plt.legend()
+plt.title('Final Cleaned Sensor Data - Week 16')
+plt.show()
+
+# SAVE YOUR WORK
+df_cleaned.to_csv('cleaned_sensor_data.csv', index=False)
+print("File saved as cleaned_sensor_data.csv!")
+
+# Create a 'smoothed' version of the data using a window of 50 readings
+df_cleaned['val_smoothed'] = df_cleaned['val'].rolling(window=50).mean()
+
+# Plot them together to see the difference
+plt.figure(figsize=(12, 5))
+plt.plot(df_cleaned['val'], alpha=0.3, label='Original (Noisy)')
+plt.plot(df_cleaned['val_smoothed'], color='red', label='Smoothed (Clean)')
+plt.legend()
+plt.title('Final Cleaned Sensor Data - Week 16')
+plt.show()
+
+# SAVE YOUR WORK
+df_cleaned.to_csv('cleaned_sensor_data.csv', index=False)
+print("File saved as cleaned_sensor_data.csv!")
+
+# Create a 'smoothed' version of the data using a window of 50 readings
+df_cleaned['val_smoothed'] = df_cleaned['val'].rolling(window=50).mean()
+
+# Plot them together to see the difference
+plt.figure(figsize=(12, 5))
+plt.plot(df_cleaned['val'], alpha=0.3, label='Original (Noisy)')
+plt.plot(df_cleaned['val_smoothed'], color='red', label='Smoothed (Clean)')
+plt.legend()
+plt.title('Final Cleaned Sensor Data - Week 16')
+plt.show()
+
+# SAVE YOUR WORK
+df_cleaned.to_csv('cleaned_sensor_data.csv', index=False)
+print("File saved as cleaned_sensor_data.csv!")
+
+# Create a 'smoothed' version of the data using a window of 50 readings
+df_cleaned['val_smoothed'] = df_cleaned['val'].rolling(window=50).mean()
+
+# Plot them together to see the difference
+plt.figure(figsize=(12, 5))
+plt.plot(df_cleaned['val'], alpha=0.3, label='Original (Noisy)')
+plt.plot(df_cleaned['val_smoothed'], color='red', label='Smoothed (Clean)')
+plt.legend()
+plt.title('Final Cleaned Sensor Data - Week 16')
+plt.show()
+
+# SAVE YOUR WORK
+df_cleaned.to_csv('cleaned_sensor_data.csv', index=False)
+print("File saved as cleaned_sensor_data.csv!")
