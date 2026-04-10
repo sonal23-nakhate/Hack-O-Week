@@ -1,15 +1,21 @@
-
 const intentMap = {
-    "admission": ["apply", "admit", "join", "process"],
-    "fees": ["cost", "price", "pay", "tuition"],
-    "exams": ["test", "schedule", "paper", "exam"],
-    "hostel": ["stay", "room", "accommodation", "mess"],
-    "scholarship": ["financial aid", "discount", "scholarship"]
+    admission: ["apply", "admission", "join", "process"],
+    fees: ["cost", "price", "pay", "tuition"],
+    exams: ["test", "schedule", "paper", "exam"],
+    timetable: ["timetable", "routine", "timing", "class"],
+    hostel: ["stay", "room", "accommodation", "mess"],
+    scholarship: ["financial", "aid", "discount", "scholarship"]
 };
 
 function classifyIntent(tokens) {
+    tokens = tokens.map(t => t.toLowerCase());
+
     for (let [intent, keywords] of Object.entries(intentMap)) {
-        if (keywords.some(k => tokens.includes(k))) return intent;
+        for (let keyword of keywords) {
+            if (tokens.includes(keyword)) {
+                return intent;
+            }
+        }
     }
     return "unknown";
 }
