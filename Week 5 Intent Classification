@@ -1,21 +1,37 @@
-const intentMap = {
-    admission: ["apply", "admission", "join", "process"],
-    fees: ["cost", "price", "pay", "tuition"],
-    exams: ["test", "schedule", "paper", "exam"],
-    timetable: ["timetable", "routine", "timing", "class"],
-    hostel: ["stay", "room", "accommodation", "mess"],
-    scholarship: ["financial", "aid", "discount", "scholarship"]
-};
+const natural = require('natural');
+const classifier = new natural.BayesClassifier();
 
-function classifyIntent(tokens) {
-    tokens = tokens.map(t => t.toLowerCase());
+// 🟢 Training Data (you can expand this)
+classifier.addDocument("how to apply for admission", "admission");
+classifier.addDocument("admission process details", "admission");
+classifier.addDocument("how can I join college", "admission");
 
-    for (let [intent, keywords] of Object.entries(intentMap)) {
-        for (let keyword of keywords) {
-            if (tokens.includes(keyword)) {
-                return intent;
-            }
-        }
-    }
-    return "unknown";
+classifier.addDocument("what is the fee structure", "fees");
+classifier.addDocument("how much is the tuition fee", "fees");
+classifier.addDocument("payment details", "fees");
+
+classifier.addDocument("when is the exam schedule", "exams");
+classifier.addDocument("exam dates and timetable", "exams");
+classifier.addDocument("test timetable", "exams");
+
+classifier.addDocument("class timetable", "timetable");
+classifier.addDocument("daily routine of classes", "timetable");
+
+classifier.addDocument("hostel facilities", "hostel");
+classifier.addDocument("room and mess details", "hostel");
+
+classifier.addDocument("scholarship details", "scholarship");
+classifier.addDocument("financial aid options", "scholarship");
+
+// 🟢 Train the model
+classifier.train();
+
+// 🟢 Function to classify intent
+function classifyIntent(input) {
+    return classifier.classify(input.toLowerCase());
 }
+
+// 🔍 Test
+console.log(classifyIntent("How can I enroll in college?"));  // admission
+console.log(classifyIntent("Tell me exam dates"));            // exams
+console.log(classifyIntent("What is the cost of course?"));   // fees
