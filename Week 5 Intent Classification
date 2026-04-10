@@ -1,7 +1,7 @@
 const natural = require('natural');
 const classifier = new natural.BayesClassifier();
 
-// 🟢 Training Data (you can expand this)
+// Training Data 
 classifier.addDocument("how to apply for admission", "admission");
 classifier.addDocument("admission process details", "admission");
 classifier.addDocument("how can I join college", "admission");
@@ -23,15 +23,15 @@ classifier.addDocument("room and mess details", "hostel");
 classifier.addDocument("scholarship details", "scholarship");
 classifier.addDocument("financial aid options", "scholarship");
 
-// 🟢 Train the model
+//  Train the model
 classifier.train();
 
-// 🟢 Function to classify intent
+//  Function to classify intent
 function classifyIntent(input) {
     return classifier.classify(input.toLowerCase());
 }
 
-// 🔍 Test
+// Test
 console.log(classifyIntent("How can I enroll in college?"));  // admission
 console.log(classifyIntent("Tell me exam dates"));            // exams
 console.log(classifyIntent("What is the cost of course?"));   // fees
